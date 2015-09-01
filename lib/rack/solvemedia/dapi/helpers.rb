@@ -21,7 +21,6 @@ module Rack
         # @option options [Boolean] :ssl
         def sm_dapi_html(user_data, options = {})
           return "" if Rack::SolveMedia::DAPI.get_session_cookie(request)
-          return "" if request.cookies.empty?
 
           user_data.delete_if { |k,v| v.nil? || v.empty? }
           return "" if user_data.empty?
