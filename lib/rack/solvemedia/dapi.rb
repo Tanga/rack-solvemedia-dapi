@@ -11,13 +11,13 @@ module Rack
         # Reads the Solve Media DAPI cookie and returns its contents
         # @param [Rack::Request] req The current request
         def get_session_cookie(req)
-          return req.cookies[SESSION_COOKIE]                
+          return req.cookies[SESSION_COOKIE]
         end
 
       end
 
-      SERVER = "http://data.solvemedia.com"
-      SECURE_SERVER = "https://data-secure.solvemedia.com"
+      SERVER = "http://data.circulate.com"
+      SECURE_SERVER = "https://data-secure.circulate.com"
       SESSION_COOKIE = "sm_dapi_session"
       SESSION_LENGTH = 14 * 24 * 60 * 60
 
@@ -26,7 +26,7 @@ module Rack
       # @option options [Boolean] :ssl (false) Use SSL?
       def initialize(app, site_id, options = {})
         @app = app
-        
+
         self.class.site_id      = site_id
         self.class.ssl          = options[:ssl] || false
         self.class.site_domain  = options[:site_domain] || ""
